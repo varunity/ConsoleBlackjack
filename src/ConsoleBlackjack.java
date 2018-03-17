@@ -1,4 +1,4 @@
-
+//Started from tutorial and improved on it
 
 import java.util.Scanner;
 
@@ -6,9 +6,9 @@ public class ConsoleBlackjack {
 
 	public static void main(String[] args){
 		
-		System.out.println("Welcome to Blackjack!");
+		System.out.println("This is Console Blackjack. Welcome!");
 		
-		//playingDeck will be the deck the dealer holds
+		//playingDeck will be the cards held by the dealer
 		Deck playingDeck = new Deck();
 		playingDeck.createFullDeck();
 		playingDeck.shuffle();
@@ -16,15 +16,18 @@ public class ConsoleBlackjack {
 		//playerCards will be the cards the player has in their hand
 		Deck playerCards = new Deck();
 		//playerMoney holds players cash - we will be lazy and use doubles instead of bigdecimals
-		double playerMoney = 100.0;
+		double playerMoney = 10000.0;
 		//dealerCards will be the cards the dealer has in their hand
 		Deck dealerCards = new Deck();
 		
-		//Scanner for user input
+		//Scanner for user input from keyboard
 		Scanner userInput = new Scanner(System.in);
 		
 		//Play the game while the player has money
-		//Game loop
+		
+		//TODO: replace while loops with methods and functions to run and keep track of the game instead
+		//Game loop can be improved on
+
 while(playerMoney>0){
 	//Take Bet
 	System.out.println("You have $" + playerMoney + ", how much would you like to bet?");
@@ -32,7 +35,7 @@ while(playerMoney>0){
 	boolean endRound = false;
 	if(playerBet > playerMoney){
 		//Break if they bet too much
-		System.out.println("You cannot bet more than you have.");
+		System.out.println("Nah. You cannot bet more than you have.");
 		break;
 	}
 	
