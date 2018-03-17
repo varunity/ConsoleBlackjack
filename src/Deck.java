@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
-import java.util.Random;
+
+import java.util.Collections;
 
 public class Deck {
 
@@ -28,22 +29,9 @@ public class Deck {
 	
 //Shuffle deck of cards
 public void shuffle(){
-	//Create a new arraylist to hold the shuffled cards temporarily
-	ArrayList<Card> tmpDeck = new ArrayList<Card>();
-	//Randomly pick from the old deck and copy values to the new deck
-	Random random = new Random();
-	int randomCardIndex = 0;
-	int originalSize = this.cards.size();
-	for(int i = 0; i<originalSize;i++){
-		//gen random num according to int randomNum = rand.nextInt((max - min) + 1) + min;
-		randomCardIndex = random.nextInt((this.cards.size()-1 - 0) + 1) + 0;
-		//throw random card into new deck
-		tmpDeck.add(this.cards.get(randomCardIndex));
-		//remove picked from old deck
-		this.cards.remove(randomCardIndex);
-	}
-	//set this.deck to our newly shuffled deck
-	this.cards = tmpDeck;
+
+	//Using Collections.shuffle to randomize the ArrayList of cards
+	Collections.shuffle(this.cards);
 }
 	
 	
@@ -72,10 +60,10 @@ public void shuffle(){
 	//Use to print out deck
 	public String toString(){
 		String cardListOutput = "";
-		int i = 0;
+
 		for(Card aCard : this.cards){
 			cardListOutput += "\n" + aCard.toString();
-			i++;
+
 		}
 		return cardListOutput;
 	}
